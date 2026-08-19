@@ -18,3 +18,12 @@ console.log(`Регистрация: ${registrationResult}`);
 
 const loginResult = checkStatus(401, 200);
 console.log(`Авторизация: ${loginResult}`);
+
+function checkResponseBody(actualMessage, expectedMessage) {
+  if (actualMessage === expectedMessage) {
+    return `Сообщение корректное`;
+  }
+  return `Сообщение некорректное, ожидалось: ${expectedMessage}, а получено: ${actualMessage}`;
+}
+console.log(checkResponseBody('Success', 'Success'));
+console.log(checkResponseBody('User not found', 'Success'));
