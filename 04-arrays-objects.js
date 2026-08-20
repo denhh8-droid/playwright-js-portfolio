@@ -49,10 +49,10 @@ const users = [
 //console.log(users[2].age);
 //console.log(users[1]);
 
-const searshEmailUsers = 'de-de-koljan@example.com';
+const searshEmailUser = 'de-koljan@example.com';
 
 const foundUser = users.find((currentUser) => {
-  return currentUser.email === searshEmailUsers;
+  return currentUser.email === searshEmailUser;
 });
 
 console.log(foundUser);
@@ -60,22 +60,19 @@ if (foundUser) {
   console.log(`Я нашел юзера: ${foundUser.name}! И знаешь, ему сейчас: ${foundUser.age}`);
 } else {
   console.log(
-    `Увы, но никого с мэйлом  ${searshEmailUsers} в нашей базе не найдено. Задай другие параметры поиска, пожалуйста.`,
+    `Увы, но никого с мэйлом  ${searshEmailUser} в нашей базе не найдено. Задай другие параметры поиска, пожалуйста.`,
   );
 }
-
-const searshUnactiveUser = (users.isActive = false);
-
-const foundActiveUsers = users.find((currentUser) => {
-  return currentUser.isActive === searshUnactiveUser;
+const searchedIsActive = false;
+const searchedStatusLabel = 'неактивный';
+const foundInactiveUser = users.find((currentUser) => {
+  return currentUser.isActive === searchedIsActive;
 });
-console.log(foundActiveUsers);
-if (foundActiveUsers) {
+
+if (foundInactiveUser) {
   console.log(
-    `Мне тут первым попался из активных юзеров вот этот: ${foundActiveUsers.name}, прикинь, его роль на сайте: ${foundActiveUsers.role}`,
+    `Найден ${searchedStatusLabel} пользователь: ${foundInactiveUser.name}. Роль: ${foundInactiveUser.role}`,
   );
 } else {
-  console.log(
-    `Никого со статусом:  ${searshEmailUsers} у нас в базе не найдено. Поищем по другим параметрам?`,
-  );
+  console.log(`Пользователи со статусом "${searchedStatusLabel}" не найдены`);
 }
